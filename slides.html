@@ -1,0 +1,685 @@
+<!doctype html>
+  <html>
+  <head>
+   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <script>
+
+var slides = []
+
+
+setTimeout(function () {
+  //document.body.innerHTML = ''
+  console.log('SLIDES')
+  var c = [].slice.call(document.body.children)
+
+  var div = document.createElement('div')
+  console.log(c)
+  c.forEach(function (e) {
+    console.log(e.tagName)
+    if(e.tagName == 'HR') {
+      document.body.removeChild(e)
+      document.body.appendChild(div)
+      div = document.createElement('div')    
+    } else
+      div.appendChild(e)
+
+  })
+  document.body.appendChild(div)
+
+  slides = [].slice.call(document.body.children)
+  show()
+})
+
+function show () {
+  slides.forEach(function (e, i) {
+    e.style.display = i===S ? 'block' : 'none'
+  })
+
+}
+
+var S = 0
+window.onkeydown = function (e) {
+  console.log(e)
+  if(e.keyCode == 39) {
+    S = Math.min(S + 1, slides.length - 1)
+  }
+  if(e.keyCode == 37) {
+    S = Math.max(S - 1, 0)
+  }
+  show()
+}
+
+    </script>
+  <style>
+pre {
+  background-color: rgb(248, 248, 248);
+  border: 1px solid rgb(221, 221, 221);
+  padding:  6px 10px 6px 10px;
+}
+
+.highlight {
+//  background: #ffffff;
+}
+
+.highlight .c {
+  color: #999988;
+  font-style: italic;
+}
+
+.highlight .err {
+  color: #a61717;
+  background-color: #e3d2d2;
+}
+
+.highlight .k {
+  font-weight: bold;
+}
+
+.highlight .o {
+  font-weight: bold;
+}
+
+.highlight .cm {
+  color: #999988;
+  font-style: italic;
+}
+
+.highlight .cp {
+  color: #999999;
+  font-weight: bold;
+}
+
+.highlight .c1 {
+  color: #999988;
+  font-style: italic;
+}
+
+.highlight .cs {
+  color: #999999;
+  font-weight: bold;
+  font-style: italic;
+}
+
+.highlight .gd {
+  color: #000000;
+  background-color: #ffdddd;
+}
+
+.highlight .gd .x {
+  color: #000000;
+  background-color: #ffaaaa;
+}
+
+.highlight .ge {
+  font-style: italic;
+}
+
+.highlight .gr {
+  color: #aa0000;
+}
+
+.highlight .gh {
+  color: #999999;
+}
+
+.highlight .gi {
+  color: #000000;
+  background-color: #ddffdd;
+}
+
+.highlight .gi .x {
+  color: #000000;
+  background-color: #aaffaa;
+}
+
+.highlight .go {
+  color: #888888;
+}
+
+.highlight .gp {
+  color: #555555;
+}
+
+.highlight .gs {
+  font-weight: bold;
+}
+
+.highlight .gu {
+  color: #800080;
+  font-weight: bold;
+}
+
+.highlight .gt {
+  color: #aa0000;
+}
+
+.highlight .kc {
+  font-weight: bold;
+}
+
+.highlight .kd {
+  font-weight: bold;
+}
+
+.highlight .kn {
+  font-weight: bold;
+}
+
+.highlight .kp {
+  font-weight: bold;
+}
+
+.highlight .kr {
+  font-weight: bold;
+}
+
+.highlight .kt {
+  color: #445588;
+  font-weight: bold;
+}
+
+.highlight .m {
+  color: #009999;
+}
+
+.highlight .s {
+  color: #d14;
+}
+
+.highlight .n {
+  color: #333333;
+}
+
+.highlight .na {
+  color: #008080;
+}
+
+.highlight .nb {
+  color: #0086B3;
+}
+
+.highlight .nc {
+  color: #445588;
+  font-weight: bold;
+}
+
+.highlight .no {
+  color: #008080;
+}
+
+.highlight .ni {
+  color: #800080;
+}
+
+.highlight .ne {
+  color: #990000;
+  font-weight: bold;
+}
+
+.highlight .nf {
+  color: #990000;
+  font-weight: bold;
+}
+
+.highlight .nn {
+  color: #555555;
+}
+
+.highlight .nt {
+  color: #000080;
+}
+
+.highlight .nv {
+  color: #008080;
+}
+
+.highlight .ow {
+  font-weight: bold;
+}
+
+.highlight .w {
+  color: #bbbbbb;
+}
+
+.highlight .mf {
+  color: #009999;
+}
+
+.highlight .mh {
+  color: #009999;
+}
+
+.highlight .mi {
+  color: #009999;
+}
+
+.highlight .mo {
+  color: #009999;
+}
+
+.highlight .sb {
+  color: #d14;
+}
+
+.highlight .sc {
+  color: #d14;
+}
+
+.highlight .sd {
+  color: #d14;
+}
+
+.highlight .s2 {
+  color: #d14;
+}
+
+.highlight .se {
+  color: #d14;
+}
+
+.highlight .sh {
+  color: #d14;
+}
+
+.highlight .si {
+  color: #d14;
+}
+
+.highlight .sx {
+  color: #d14;
+}
+
+.highlight .sr {
+  color: #009926;
+}
+
+.highlight .s1 {
+  color: #d14;
+}
+
+.highlight .ss {
+  color: #990073;
+}
+
+.highlight .bp {
+  color: #999999;
+}
+
+.highlight .vc {
+  color: #008080;
+}
+
+.highlight .vg {
+  color: #008080;
+}
+
+.highlight .vi {
+  color: #008080;
+}
+
+.highlight .il {
+  color: #009999;
+}
+
+
+  </style>
+  </head>
+  <body>
+<h1>写290模块我学到的东西</h1>
+<p>(What I&#39;ve learnt after writing 290 modules)</p>
+<hr>
+<h1>Some things I&#39;ve written since node@0.2.1</h1>
+<ul>
+<li>testing</li>
+<li>streams</li>
+<li>replication</li>
+<li>text editor</li>
+<li>databases</li>
+<li>and other stuff!</li>
+</ul>
+<hr>
+<h1>testing stuff</h1>
+<pre><code>meta-test       asynct               synct
+testbed         test-report-test     test-child
+test-runner     test-cmd             it-is
+assertions      asynct_tests         macgyver</code></pre>
+<hr>
+<h1>stream modules</h1>
+<pre><code>event-stream    JSONStream           through
+fsm-stream      map-stream           rpc-stream
+git-stream      message-stream       push-stream
+header-stream   msgpack-stream       recurse-stream
+sort-stream     regular-stream       relational-join-stream
+pause-stream    tab-stream           repl-stream
+duplex          stream-combiner      redis-protocol-stream
+mux-demux       stream-serializer    stream-to-pull-stream
+reconnect       stream-spec          pull-stream-to-stream
+stream-tester   post-message-stream</code></pre>
+<hr>
+<h1>connect producers and consumers of data together.</h1>
+<pre><code class="lang-js"><span class=highlight><span class=nx>input</span><span class=p>.</span><span class=nx>pipe</span><span class=p>(</span><span class=nx>transform</span><span class=p>)</span><span class=p>.</span><span class=nx>pipe</span><span class=p>(</span><span class=nx>output</span><span class=p>)</span></span></code></pre>
+<hr>
+<h1>light-weight data replication</h1>
+<pre><code>snob           crdt                  scuttlebutt
+scuttlebucket  r-edit                level-scuttlebutt
+r-value        scuttlebutt-remote    localstorage-scuttlebutt
+repred         schema-scuttlebutt    r-array</code></pre>
+<hr>
+<h1>these all follow the duplex pattern</h1>
+<pre><code>stream.pipe(replicator.createStream).pipe(stream)
+
+replicator.set(&#39;foo&#39;, &#39;bar&#39;)
+
+var bar = replicator.get(&#39;foo&#39;)
+
+replicator.on(&#39;change&#39;, function (key, value) {
+  console.log(&#39;change&#39;, key, value)
+})</code></pre>
+<hr>
+<h1>minimal streams</h1>
+<p><code>strm</code></p>
+<pre><code>pull-stream       pull-glob      pull-sorted-merge
+pull-through      reg-spec       pull-traverse
+pull-cat          pull-http      pull-split
+pull-core         pull-level     pull-async-batch
+pull-window       pull-zip       regular-stream
+pull-crypto       pull-markable  pull-stream-range
+pull-decode       pull-merge     pull-stream-to-stream
+pull-flow         pull-paramap   pull-switch
+pull-fs           pull-pushable  pull-tee</code></pre>
+<hr>
+<h1>function as a stream</h1>
+<pre><code class="lang-js"><span class=highlight><span class=kd>function</span><span class=w> </span><span class=nx>values</span><span class=w> </span><span class=p>(</span><span class=nx>array</span><span class=p>)</span><span class=w> </span><span class=p>{</span><span class=w>
+  </span><span class=kd>var</span><span class=w> </span><span class=nx>i</span><span class=w> </span><span class=p>=</span><span class=w> </span><span class=mi>0</span><span class=w>
+  </span><span class=kd>return</span><span class=w> </span><span class=kd>function</span><span class=w> </span><span class=p>(</span><span class=nx>abort</span><span class=p>,</span><span class=w> </span><span class=nx>cb</span><span class=p>)</span><span class=w> </span><span class=p>{</span><span class=w>
+    </span><span class=nx>if</span><span class=p>(</span><span class=nx>i</span><span class=w> </span><span class=p>></span><span class=w> </span><span class=nx>array</span><span class=p>.</span><span class=nx>length</span><span class=p>)</span><span class=w> </span><span class=nx>cb</span><span class=p>(</span><span class=nx>true</span><span class=p>)</span><span class=w>
+    </span><span class=nx>else</span><span class=w>                 </span><span class=nx>cb</span><span class=p>(</span><span class=nx>null</span><span class=p>,</span><span class=w> </span><span class=nx>array</span><span class=p>[</span><span class=nx>i</span><span class=p>+</span><span class=p>+</span><span class=p>]</span><span class=p>)</span><span class=w>
+  </span><span class=p>}</span><span class=p>)</span><span class=w>
+</span><span class=p>}</span></span></code></pre>
+<hr>
+<h1>reader instead of a writable</h1>
+<pre><code class="lang-js"><span class=highlight><span class=kd>function</span><span class=w> </span><span class=nx>sink</span><span class=w> </span><span class=p>(</span><span class=nx>read</span><span class=p>)</span><span class=w> </span><span class=p>{</span><span class=w>
+  </span><span class=nx>read</span><span class=p>(</span><span class=nx>null</span><span class=p>,</span><span class=w> </span><span class=kd>function</span><span class=w> </span><span class=nx>next</span><span class=w> </span><span class=p>(</span><span class=nx>end</span><span class=p>,</span><span class=w> </span><span class=nx>data</span><span class=p>)</span><span class=w> </span><span class=p>{</span><span class=w>
+    </span><span class=nx>if</span><span class=p>(</span><span class=p>!</span><span class=nx>end</span><span class=p>)</span><span class=w> </span><span class=p>{</span><span class=w>
+      </span><span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=nx>data</span><span class=p>)</span><span class=w>
+      </span><span class=nx>read</span><span class=p>(</span><span class=nx>null</span><span class=p>,</span><span class=w> </span><span class=nx>next</span><span class=p>)</span><span class=w>
+    </span><span class=p>}</span><span class=w>
+  </span><span class=p>}</span><span class=p>)</span></span></code></pre>
+<hr>
+<h1>.pipe() is reader(readable)</h1>
+<pre><code>//pass the source to the sink
+sink(values([1, 2, 3]))
+
+//OR
+var pull = require(&#39;pull-stream&#39;)
+pull(values([1, 2, 3]), sink)</code></pre>
+<hr>
+<h1>leveldb</h1>
+<pre><code>level-sublevel    level-queue        level-live-stream
+level-manifest    level-replicate    level-test
+level-trigger     level-scuttlebutt  level-update
+level-couch-sync  level-repred       level-master
+level-fix-range   level-merkle       level-view-stream
+level-heavy       level-merkle-tree  level-search
+level-window      level-hooks        level-in-flight
+level-peek        level-static       level-index
+level-post        level-store        level-inverted-index</code></pre>
+<hr>
+<h1>leveldb</h1>
+<ul>
+<li><p>powerful yet simple key-value api.</p>
+</li>
+<li><p>put, get, del, batch, createReadStream</p>
+</li>
+<li><p>(architecture is optimized for in order reads,
+and it&#39;s great for real time data)</p>
+</li>
+</ul>
+<hr>
+<h1>what I&#39;ve learnt</h1>
+<ul>
+<li>publishing a module, or using someone&#39;s module is a
+kind of social interaction.</li>
+</ul>
+<p>Some aspects of that...</p>
+<hr>
+<h1>To collaborate...</h1>
+<p>We need to agree on some things,
+and modules can help us find agreement...  </p>
+<p><strong>By Limiting the scope of that agreement</strong></p>
+<hr>
+<h1>modules are more fun!</h1>
+<ul>
+<li><p>Since a module is small, it is achievable victory.</p>
+</li>
+<li><p>Each module has an emotional reward.</p>
+</li>
+<li><p>Becareful: publishing modules can be addictive.</p>
+</li>
+</ul>
+<hr>
+<h1>The ideal situation:</h1>
+<p>when A published module that B uses,
+ and B published module that A uses.</p>
+<h2>Now we are <em>actively collaborating</em>.</h2>
+<hr>
+<h1>it&#39;s easier to agree a little than a lot</h1>
+<p>Modules make it easier to collaborate in a loose way,
+because we can use the same modules for different things.  </p>
+<p>We can collabotate, even though we have different goals.</p>
+<hr>
+<h1>Modules are not magic.</h1>
+<ul>
+<li><p>Modules are like a building ladder,
+they make doing a hard thing into an easy thing.</p>
+</li>
+<li><p>Only particular things become good modules.</p>
+</li>
+<li><p>You must learn to detect the potential
+modules within your application.</p>
+</li>
+</ul>
+<hr>
+<h1>modules are solutions.</h1>
+<p>but what problems make for good modules?</p>
+<hr>
+<h1>Pick the right problem</h1>
+<ul>
+<li><p>Hard Problems, vs. Messy Problems</p>
+</li>
+<li><p>Abstractions, vs. Layer of Indirection.</p>
+</li>
+<li><p>天 vs. 土</p>
+</li>
+</ul>
+<hr>
+<h1>土</h1>
+<ul>
+<li>html templating</li>
+<li>http router</li>
+<li>web frameworks</li>
+<li>async callback managers (usually)</li>
+<li>configuration loader</li>
+<li>MVC frameworks</li>
+</ul>
+<hr>
+<h1>天</h1>
+<ul>
+<li>Streams</li>
+<li>Geometry (points, lines, circles)</li>
+<li>Graphs</li>
+<li>Relations</li>
+<li>Mathmatics</li>
+</ul>
+<hr>
+<h1>Heaven and Earth must be in harmony.</h1>
+<hr>
+<h2>Every language is imperfect</h2>
+<h2>so any implementation is also imperfect.</h2>
+<h2>By necessity, opinions and messiness are always present.</h2>
+<hr>
+<h1>Don&#39;t try to be too clever.</h1>
+<p>If making something a little cruder is easier, do it.  </p>
+<p>The easiest way to put your module closer to heaven
+is to make less of it.</p>
+<hr>
+<h1>Observable - 2 way bindings</h1>
+<pre><code class="lang-js"><span class=highlight><span class=kd>var</span><span class=w> </span><span class=nx>o</span><span class=w> </span><span class=p>=</span><span class=w> </span><span class=nx>require</span><span class=p>(</span><span class=s2>'observable'</span><span class=p>)</span><span class=w>
+</span><span class=kd>var</span><span class=w> </span><span class=nx>v</span><span class=w> </span><span class=p>=</span><span class=w> </span><span class=nx>o</span><span class=p>(</span><span class=p>)</span><span class=w>
+
+</span><span class=nx>v</span><span class=p>(</span><span class=mi>10</span><span class=p>)</span><span class=w> </span><span class=c>// set value
+</span><span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=nx>v</span><span class=p>(</span><span class=p>)</span><span class=p>)</span><span class=w> </span><span class=c>// get value
+</span><span class=nx>v</span><span class=p>(</span><span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>)</span><span class=w> </span><span class=c>// track value
+</span><span class=nx>v</span><span class=p>(</span><span class=mi>12</span><span class=p>)</span><span class=w> </span><span class=>//</span><span class=w> </span><span class=nx>trigger</span><span class=w> </span><span class=nx>change</span></span></code></pre>
+<hr>
+<h1>inside observable</h1>
+<pre><code class="lang-js"><span class=highlight><span class=kd>function</span><span class=w> </span><span class=nx>value</span><span class=w> </span><span class=p>(</span><span class=p>)</span><span class=w> </span><span class=p>{</span><span class=w>
+  </span><span class=kd>var</span><span class=w> </span><span class=nx>_val</span><span class=p>,</span><span class=w> </span><span class=nx>change</span><span class=w>
+  </span><span class=kd>return</span><span class=w> </span><span class=kd>function</span><span class=w> </span><span class=p>(</span><span class=nx>val</span><span class=p>)</span><span class=w> </span><span class=p>{</span><span class=w>
+    </span><span class=kd>return</span><span class=w> </span><span class=p>(</span><span class=w>
+      </span><span class=s2>'undefined'</span><span class=w> </span><span class=p>=</span><span class=p>=</span><span class=p>=</span><span class=w> </span><span class=nx>typeof</span><span class=w> </span><span class=nx>val</span><span class=w> </span><span class=p>?</span><span class=w> </span><span class=nx>_val</span><span class=w>
+    </span><span class=p>:</span><span class=w> </span><span class=s2>'function'</span><span class=w>  </span><span class=p>!</span><span class=p>=</span><span class=p>=</span><span class=w> </span><span class=nx>typeof</span><span class=w> </span><span class=nx>val</span><span class=w> </span><span class=p>?</span><span class=w> </span><span class=nx>change</span><span class=w> </span><span class=p>&</span><span class=p>&</span><span class=w> </span><span class=nx>change</span><span class=p>(</span><span class=nx>_val</span><span class=w> </span><span class=p>=</span><span class=w> </span><span class=nx>val</span><span class=p>)</span><span class=w>
+    </span><span class=p>:</span><span class=w> </span><span class=p>(</span><span class=p>(</span><span class=nx>change</span><span class=w> </span><span class=p>=</span><span class=w> </span><span class=nx>val</span><span class=p>)</span><span class=p>,</span><span class=w> </span><span class=nx>val</span><span class=p>(</span><span class=nx>_val</span><span class=p>)</span><span class=p>,</span><span class=w> </span><span class=kd>function</span><span class=w> </span><span class=p>(</span><span class=p>)</span><span class=w> </span><span class=p>{</span><span class=w>
+      </span><span class=nx>if</span><span class=p>(</span><span class=nx>change</span><span class=w> </span><span class=p>=</span><span class=p>=</span><span class=p>=</span><span class=w> </span><span class=nx>val</span><span class=p>)</span><span class=w> </span><span class=nx>change</span><span class=w> </span><span class=p>=</span><span class=w> </span><span class=nx>null</span><span class=w>
+    </span><span class=p>}</span><span class=p>)</span><span class=w>
+  </span><span class=p>)</span><span class=p>}</span><span class=p>}</span></span></code></pre>
+<hr>
+<h1>A Modular Ecosystem</h1>
+<ul>
+<li>when many people are collaborating around a theme</li>
+</ul>
+<hr>
+<h1>The first modular ecosystem: UNIX</h1>
+<ul>
+<li><p>if you are using OSX or LINUX you are using UNIX</p>
+</li>
+<li><p>unix is mainly compromised of small utilities that input and output text.</p>
+</li>
+</ul>
+<hr>
+<h1>the ecosystem pattern</h1>
+<ul>
+<li><p>the 核心
+(provides the raw power)</p>
+</li>
+<li><p>the 壳
+(allows that power to be easily directed)</p>
+</li>
+<li><p>the 模块 are programs that input and output text.</p>
+</li>
+</ul>
+<hr>
+<h1>connect/express</h1>
+<ul>
+<li><p>the 核心 is require(&#39;http&#39;)</p>
+</li>
+<li><p>the 壳 is connect/express</p>
+</li>
+<li><p>the 模块 are functions that alter or handle http request/response</p>
+</li>
+</ul>
+<hr>
+<h1>streams</h1>
+<ul>
+<li><p>the 核心 is IO</p>
+</li>
+<li><p>the 壳 is source.pipe(dest)</p>
+</li>
+<li><p>the 模块 are streams</p>
+</li>
+</ul>
+<hr>
+<h1>leveldb</h1>
+<ul>
+<li><p>the 核心 is LevelDown</p>
+</li>
+<li><p>the 壳 is levelup &amp; level-sublevel</p>
+</li>
+<li><p>the 模块 are javascript that adds database features.</p>
+</li>
+</ul>
+<hr>
+<h1>node.js</h1>
+<ul>
+<li><p>the 核心 is libuv * core modules</p>
+</li>
+<li><p>the 壳 is npm/require()</p>
+</li>
+<li><p>the 模块 are javascript functions that export one or more functions.</p>
+</li>
+</ul>
+<hr>
+<h1>Other Potential Modular Ecosystems</h1>
+<p>These don&#39;t really exist yet,
+but they could.</p>
+<hr>
+<h1>Graphs - see graphlib</h1>
+<pre><code>dagre        - graph layout
+graphlib-dot - parse dot files
+dagre-d3     - render with d3
+graphlib-git - generate graph of git commits
+graphlib-adjacency
+             - graph from adjacency list</code></pre>
+<p>Lots of potential graph algorithms.</p>
+<hr>
+<h1>Tabular Data &amp; Statistics</h1>
+<p>Steal ideas from matlab, or panda (python)</p>
+<pre><code>Table#get(row, col)
+Table#set(row, col, value)
+Table#addRow (afterRow, values)
+Table#select(startRow, EndRow) //returns a view on this table.</code></pre>
+<p><a href="https://github.com/maxogden/dat/issues/16">https://github.com/maxogden/dat/issues/16</a>  </p>
+<p>Basically, everything you&#39;d need to implement a spreadsheet.</p>
+<hr>
+<h1>Vec2 - 2D Vectors</h1>
+<p>use Vec2 to bring Geometry to the DOM.</p>
+<pre><code class="lang-js"><span class=highlight><span class=kd>var</span><span class=w> </span><span class=nx>v</span><span class=w> </span><span class=p>=</span><span class=w> </span><span class=kd>new</span><span class=w> </span><span class=nx>Vec2</span><span class=p>(</span><span class=p>)</span><span class=p>.</span><span class=nx>set</span><span class=p>(</span><span class=nx>x</span><span class=p>,</span><span class=w> </span><span class=nx>y</span><span class=p>)</span><span class=w>
+</span><span class=>//</span><span class=nx>many</span><span class=w> </span><span class=nx>methods</span><span class=w> </span><span class=nx>working</span><span class=w> </span><span class=kd>with</span><span class=w> </span><span class=nx>vectors</span><span class=p>.</span></span></code></pre>
+<hr>
+<p>get the dimensions of an element, natively...</p>
+<pre><code class="lang-js"><span class=highlight><span class=kd>function</span><span class=w> </span><span class=nx>positon</span><span class=p>(</span><span class=nx>element</span><span class=p>)</span><span class=w> </span><span class=p>{</span><span class=w>
+  </span><span class=kd>var</span><span class=w> </span><span class=nx>rect</span><span class=w> </span><span class=p>=</span><span class=w> </span><span class=nx>element</span><span class=p>.</span><span class=nx>getBoundingClientRect</span><span class=p>(</span><span class=p>)</span><span class=w>
+
+  </span><span class=c>//if this object has margins, add them to the calculation.
+</span><span class=w>  </span><span class=c>//otherwise your numbers will be wrong!
+</span><span class=w>  </span><span class=kd>var</span><span class=w> </span><span class=nx>style</span><span class=w> </span><span class=p>=</span><span class=w> </span><span class=nx>getComputedStyle</span><span class=p>(</span><span class=nx>element</span><span class=p>)</span><span class=w>
+
+  </span><span class=kd>return</span><span class=w> </span><span class=p>{</span><span class=w>
+    </span><span class=nx>x</span><span class=p>:</span><span class=w> </span><span class=nx>rec</span><span class=p>.</span><span class=nx>left</span><span class=w> </span><span class=p>+</span><span class=w> </span><span class=nx>parseFloat</span><span class=p>(</span><span class=nx>style</span><span class=p>[</span><span class=s2>'margin-left'</span><span class=p>]</span><span class=p>)</span><span class=p>,</span><span class=w>
+    </span><span class=nx>y</span><span class=p>:</span><span class=w> </span><span class=nx>rec</span><span class=p>.</span><span class=nx>top</span><span class=w> </span><span class=p>+</span><span class=w> </span><span class=nx>parseFloat</span><span class=p>(</span><span class=nx>style</span><span class=p>[</span><span class=s2>'margin-top'</span><span class=p>]</span><span class=p>)</span><span class=w>
+  </span><span class=p>}</span><span class=w>
+</span><span class=p>}</span></span></code></pre>
+<hr>
+<p>Suppose, you wanted to set the position, to an exact pixel?
+(remember, <code>position: absolute</code> means absolute position within parent)</p>
+<pre><code class="lang-js"><span class=highlight><span class=kd>function</span><span class=w> </span><span class=nx>subtract</span><span class=p>(</span><span class=nx>a</span><span class=p>,</span><span class=w> </span><span class=nx>b</span><span class=p>)</span><span class=w> </span><span class=p>{</span><span class=w>
+  </span><span class=kd>return</span><span class=w> </span><span class=p>{</span><span class=w> </span><span class=nx>x</span><span class=p>:</span><span class=w> </span><span class=nx>a</span><span class=p>.</span><span class=nx>x</span><span class=w> </span><span class=p>-</span><span class=w> </span><span class=nx>b</span><span class=p>.</span><span class=nx>x</span><span class=p>,</span><span class=w> </span><span class=nx>y</span><span class=p>:</span><span class=w> </span><span class=nx>a</span><span class=p>.</span><span class=nx>y</span><span class=w> </span><span class=p>-</span><span class=w> </span><span class=nx>b</span><span class=p>.</span><span class=nx>y</span><span class=w> </span><span class=p>}</span><span class=w>
+</span><span class=p>}</span><span class=w>
+</span><span class=kd>function</span><span class=w> </span><span class=nx>place</span><span class=w> </span><span class=p>(</span><span class=nx>element</span><span class=p>,</span><span class=w> </span><span class=nx>x</span><span class=p>,</span><span class=w> </span><span class=nx>y</span><span class=p>)</span><span class=w> </span><span class=p>{</span><span class=w>
+  </span><span class=kd>var</span><span class=w> </span><span class=nx>pos</span><span class=w> </span><span class=p>=</span><span class=w> </span><span class=nx>position</span><span class=p>(</span><span class=nx>foo</span><span class=p>)</span><span class=w>
+  </span><span class=kd>var</span><span class=w> </span><span class=nx>parentPos</span><span class=w> </span><span class=p>=</span><span class=w> </span><span class=nx>position</span><span class=p>(</span><span class=nx>foo</span><span class=p>.</span><span class=nx>parentElement</span><span class=p>)</span><span class=w>
+  </span><span class=kd>var</span><span class=w> </span><span class=nx>_pos</span><span class=w> </span><span class=p>=</span><span class=w> </span><span class=nx>subtract</span><span class=p>(</span><span class=nx>parentPos</span><span class=p>,</span><span class=w> </span><span class=nx>pos</span><span class=p>)</span><span class=w>
+  </span><span class=nx>foo</span><span class=p>.</span><span class=nx>style</span><span class=p>.</span><span class=nx>left</span><span class=w> </span><span class=p>=</span><span class=w> </span><span class=p>(</span><span class=nx>x</span><span class=w> </span><span class=p>-</span><span class=w> </span><span class=nx>_pos</span><span class=p>.</span><span class=nx>y</span><span class=p>)</span><span class=w> </span><span class=p>+</span><span class=w> </span><span class=s2>'px'</span><span class=w>
+  </span><span class=nx>foo</span><span class=p>.</span><span class=nx>style</span><span class=p>.</span><span class=nx>top</span><span class=w> </span><span class=p>=</span><span class=w> </span><span class=p>(</span><span class=nx>y</span><span class=w> </span><span class=p>-</span><span class=w> </span><span class=nx>_pos</span><span class=p>.</span><span class=nx>y</span><span class=p>)</span><span class=w> </span><span class=p>+</span><span class=w> </span><span class=s2>'px'</span><span class=w>
+</span><span class=p>}</span></span></code></pre>
+<p>TOO HARD!</p>
+<hr>
+<h1>center a element</h1>
+<pre><code>var vdom = require(&#39;vec2-dom&#39;)
+var r1 = vdom.element(e1)
+var r2 = vdom.absolute(e2, true)
+
+r2.set(r1.size.divide(2, true).subtract(r2.size.divide(2, true))</code></pre>
+<hr>
+<p>DRAG &amp; DROP EXAMPLE</p>
+<hr>
+<p>Window Manager as Front End Framework?</p>
+<hr>
+<p>Window Manager!</p>
+<hr>
+<p>maps</p>
+<hr>
+<p>Thank you jing.js</p>
+
+</body>
+</html>
